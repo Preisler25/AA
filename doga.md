@@ -98,7 +98,7 @@ INNER JOIN appointments ON pets.id = appointments.pet_id
 WHERE pet_name = 'Milo';
 ```
 
-14. Ki a gazdija annak a kisállatnak aki Dr. Davis hoz jár?
+14. Kik azok a gazdik akiknek a kisállata Dr. Davis hoz jár?
 ```sql
 SELECT users.name
 FROM users
@@ -107,3 +107,28 @@ INNER JOIN doctors ON pets.doc_id = doctors.id
 WHERE doctors.doc_name = 'Dr. Davis';
 ```
 
+15. Adj hozzá egy új rekordot a kisállatok táblához egy létező gazdihoz és doktorhoz.
+```sql
+INSERT INTO pets (pet_name, us_id, doc_id) 
+VALUES ('Bodri', 1, 1);
+```
+
+16. (15. feladat kell hozzá) Jelenitse meg azokat az órvosokat akihez 2 kutya is jár ABC szerint a doktorokat
+```sql
+SELECT doc_name, COUNT(pet_name) AS 'Kutya száma' 
+FROM doctors
+INNER JOIN pets 
+ON pets.doc_id = doctors.id
+GROUP BY doc_id
+HAVING COUNT(*) >= 2
+ORDER BY doc_name ASC;
+```
+
+17. Melyik rendelőben rendel és mi a neve a 4-es id vel rendelkező orvosnak?
+```sql
+SELECT clinics.Clinic_name, doctors.doc_name 
+FROM clinics 
+INNER JOIN doctors 
+ON clinics.id = doctors.clinic_id 
+WHERE doctors.id = 4;
+```
