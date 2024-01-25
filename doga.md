@@ -1,4 +1,7 @@
-## Még nincs kész
+## DOGA
+
+
+>doga.sql-ben található az adatbázis, itt pedig hozzá a kérdések és a vállaszok <3
 
 1.	Hogy hívják az egyes usereket?
 ```sql
@@ -131,4 +134,35 @@ FROM clinics
 INNER JOIN doctors 
 ON clinics.id = doctors.clinic_id 
 WHERE doctors.id = 4;
+```
+
+18. Melyik kisállat megy 2024 01 30 vagy utána orvoshoz?
+```sql
+SELECT pet_name 
+FROM pets 
+WHERE id 
+IN (
+    SELECT pet_id 
+    FROM appointments 
+    WHERE Time > '2024-01-30'
+    );
+```
+
+19. Rendezd nővekvő sorrendbe az állatokat a gazdájik pénze szerint.
+```sql
+SELECT pet_name, money 
+FROM pets
+INNER JOIN users 
+ON pets.us_id = users.id
+ORDER BY money ASC;
+```
+
+20. Rendezzók csökkenő sorendbe hogy melyik gazdinak hány kisállata van  
+```sql
+SELECT users.name, COUNT(pets.id) AS 'Number of pets' 
+FROM users
+INNER JOIN pets 
+ON users.id = pets.us_id
+GROUP BY users.name
+ORDER BY COUNT(pets.id) DESC;
 ```

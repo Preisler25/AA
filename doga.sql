@@ -258,6 +258,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
---Melyik rendelőben rendel és mi a neve a 4-es id vel rendelkező orvosnak
-SELECT clinics.Clinic_name, doctors.doc_name FROM clinics INNER JOIN doctors ON clinics.id = doctors.clinic_id WHERE doctors.id = 4;
