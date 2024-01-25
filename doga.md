@@ -1,3 +1,5 @@
+## Még nincs kész
+
 1.	Hogy hívják az egyes usereket?
 ```sql
 SELECT name 
@@ -103,5 +105,5 @@ FROM users
 INNER JOIN pets ON users.id = pets.us_id
 INNER JOIN doctors ON pets.doc_id = doctors.id
 WHERE doctors.doc_name = 'Dr. Davis';
-
 ```
+
